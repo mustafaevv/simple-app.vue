@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <Box>
     <li
       class="list-group-item d-flex justify-content-center"
       :class="[{ like: movie.like }, { favorite: movie.favorite }]"
@@ -21,11 +21,13 @@
         >
           fov
         </button>
-        <button class="btn-trash btn-sm">del</button>
+        <button class="btn-trash btn-sm" @click="$emit('onRemove', movie.id)">
+          del
+        </button>
         <button class="btn-start btn-sm">start</button>
       </div>
     </li>
-  </div>
+  </Box>
 </template>
 
 <script>

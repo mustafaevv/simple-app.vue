@@ -3,10 +3,30 @@
     type="text"
     class="form-control search-input"
     placeholder="search..."
+    :value="value"
+    @input="onChangeValue"
   />
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    onUpdateValue: {
+      type: Function,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      value: "",
+    };
+  },
+  methods: {
+    onChangeValue(e) {
+      this.value = e.target.value;
+      this.onUpdateValue(this.value);
+    },
+  },
+};
 </script>
 <style scoped>
 .search-input {

@@ -1,12 +1,13 @@
 <template>
-  <ul class="movie-list movie-group">
+  <Box>
     <MovieListItem
       v-for="movie in movies"
       v-bind:movie="movie"
       :key="movie.id"
       @onToggle="$emit('onToggle', $event)"
+      @onRemove="$emit('onRemove', movie.id)"
     />
-  </ul>
+  </Box>
 </template>
 <script>
 import MovieListItem from "@/components/movie-list-item/MovieListItem.vue";
@@ -17,16 +18,9 @@ export default {
   props: {
     movies: {
       type: Array,
-      require: true,
+      required: true,
     },
   },
 };
 </script>
-<style scoped>
-.movie-list {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #fcf5fc;
-  border-radius: 4px;
-}
-</style>
+<style scoped></style>

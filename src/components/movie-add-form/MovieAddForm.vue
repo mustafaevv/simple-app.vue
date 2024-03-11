@@ -1,24 +1,20 @@
 <template>
-  <div class="movie-add-form">
+  <Box>
     <h3>added movie</h3>
     <form class="add-form d-flex" @submit.prevent="addMovie">
-      <input
-        type="text"
-        class="form-control new-movie-label"
+      <Input
+        class="new-movie-label"
         placeholder="searching..."
-        :value="name"
-        @input="name = $event.target.value"
+        v-model="name"
       />
-      <input
-        type="number"
-        class="form-control new-movie-label"
+      <Input
+        class="new-movie-label"
         placeholder="how many watch"
-        :value="viewers"
-        @input="viewers = $event.target.value"
+        v-model="viewers"
       />
-      <button class="btn btn-outline-dark" type="submit">added</button>
+      <Button class="btn-outline-dark" type="submit">add</Button>
     </form>
-  </div>
+  </Box>
 </template>
 <script>
 export default {
@@ -45,11 +41,4 @@ export default {
   },
 };
 </script>
-<style>
-.movie-add-form {
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #fcf5fc;
-  border-radius: 4px;
-}
-</style>
+<style></style>
